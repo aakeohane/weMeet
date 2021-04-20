@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/weMeet/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/weMeet/static/js/main.3661bef8.chunk.js",
+    "main.js.map": "/weMeet/static/js/main.3661bef8.chunk.js.map",
+    "runtime-main.js": "/weMeet/static/js/runtime-main.f92df12b.js",
+    "runtime-main.js.map": "/weMeet/static/js/runtime-main.f92df12b.js.map",
+    "static/js/2.aa02e605.chunk.js": "/weMeet/static/js/2.aa02e605.chunk.js",
+    "static/js/2.aa02e605.chunk.js.map": "/weMeet/static/js/2.aa02e605.chunk.js.map",
+    "static/js/3.6e96ec8f.chunk.js": "/weMeet/static/js/3.6e96ec8f.chunk.js",
+    "static/js/3.6e96ec8f.chunk.js.map": "/weMeet/static/js/3.6e96ec8f.chunk.js.map",
+    "index.html": "/weMeet/index.html",
+    "service-worker.js": "/weMeet/service-worker.js",
+    "service-worker.js.map": "/weMeet/service-worker.js.map",
+    "static/css/main.9d5b29c0.chunk.css.map": "/weMeet/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.aa02e605.chunk.js.LICENSE.txt": "/weMeet/static/js/2.aa02e605.chunk.js.LICENSE.txt",
+    "static/media/logo.103b5fa1.svg": "/weMeet/static/media/logo.103b5fa1.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f92df12b.js",
+    "static/js/2.aa02e605.chunk.js",
+    "static/css/main.9d5b29c0.chunk.css",
+    "static/js/main.3661bef8.chunk.js"
+  ]
+}

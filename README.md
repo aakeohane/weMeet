@@ -4,16 +4,16 @@ The objective of this app is to build a serverless, progressive web application 
 ## **Feature 2:**
 As a user, I should be able to expand and collapse details for an event so that I can see extra information about an event id like to know more about.
 
-- _Scenario 1: An event element is collapsed by default_
--   **Given** user hasn’t opened/clicked for further details about each event shown  
+- _Scenario 1: An event element is collapsed by default_  
+ **Given** user hasn’t opened/clicked for further details about each event shown  
     **When** the user opens the app to see list of events with basic information  
     **Then** the user can see all events without extraneous information in the viewport
-- _Scenario 2: User can expand an event to see its details_
--   **Given** user sees list of events  
+- _Scenario 2: User can expand an event to see its details_  
+   **Given** user sees list of events  
     **When** the user clicks on expand button  
     **Then** the user can see more details about a certain event
-- _Scenario 3: User can collapse an event to hide its details_
--   **Given** user opened further details about event  
+- _Scenario 3: User can collapse an event to hide its details_  
+   **Given** user opened further details about event  
     **When** user must click the collapse button  
     **Then** the user can see a list of events without the expanded details open
 

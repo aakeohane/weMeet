@@ -24,7 +24,7 @@ As a user, I should be able to filter the number of events I see on the page so 
 	 **Given** user hasn’t specified number of events to show  
     **When** the user opens up the app  
     **Then** the user should see list of 32 events
-- _Scenario 2: User can change the number of events they want to see_
+- _Scenario 2: User can change the number of events they want to see_  
   **Given** user wants to change number of events shown  
     **When** user uses filter to change number of events shown  
     **Then** the user will see the number of events that they chose to filter list by
@@ -36,7 +36,7 @@ As a user, I should be able to find some information about an event without and 
    **Given** user wants to use app without internet  
     **When** user opens app  
     **Then** user should only see info based on the cached data from last network connection
-- _Scenario 2: Show error when user changes the settings (city, time range)_
+- _Scenario 2: Show error when user changes the settings (city, time range)_  
    **Given** user wants to change the settings without Internet connection  
     **When** user submits changes to the filter settings of the city and time range  
     **Then** user will get error message

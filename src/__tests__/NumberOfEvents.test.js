@@ -18,7 +18,7 @@ describe('<NumberOfEvents /> component', () => {
   });
 
   // Feature 3 Scenario 2
-  test('change the number of events to show using input box', () => {
+  test('change the state when input changes', () => {
     NumberOfEventsWrapper.find('.eventNumberInput').simulate('change', {
       target: { value: 24 },
     });

@@ -24,7 +24,7 @@ class Event extends Component {
         </div>
         {!showDetails
           ? <button
-              className="detailsButton"
+              className="details-btn"
               onClick={() => this.handleClick()}
               >Show details
             </button>
@@ -33,7 +33,7 @@ class Event extends Component {
                 <p className="eventDescription">{event.description}</p>
               </div>
               <button
-                className="detailsButton"
+                className="details-btn"
                 onClick={() => this.handleClick()}
                 >Hide details
               </button>

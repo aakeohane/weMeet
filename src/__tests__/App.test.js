@@ -35,7 +35,7 @@ describe ('<App /> integration', () => {
     AppWrapper.unmount();
   });
 
-  test('App passes "locations" state as a proop to CitySearch', () => {
+  test('App passes "locations" state as a prop to CitySearch', () => {
     const AppWrapper = mount(<App />);
     const AppLocationsState = AppWrapper.state('locations');
     expect(AppLocationsState).not.toEqual(undefined);
@@ -66,4 +66,12 @@ describe ('<App /> integration', () => {
     expect(AppWrapper.state('events')).toEqual(allEvents);
     AppWrapper.unmount();
   })
+
+  test('App passes even count state "numberOfEvents" as a prop to NumberOfEvents', () => {
+    const AppWrapper = mount(<App />);
+    const eventCountNumber = AppWrapper.state('numberOfEvents');
+    expect(eventCountNumber).not.toEqual(undefined);
+    expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(eventCountNumber);
+    AppWrapper.unmount();
+  });
 });

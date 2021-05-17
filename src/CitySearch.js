@@ -40,6 +40,7 @@ class CitySearch extends Component {
         <ul className="suggestions" style={this.state.showSuggestions ? {} : { display: 'none' }}>
           {this.state.suggestions.map((suggestion) => (
             <li 
+              className="city-suggestion"
               key={suggestion}
               onClick={() => this.handleItemClicked(suggestion)}>{suggestion}</li>
           ))}

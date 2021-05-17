@@ -58,11 +58,12 @@ describe('filter events by city', () => {
   });
   
   test('filter events by city', async () => {
-    // Can not figure out how to select Berlin and wait for results =(
     await page.type('.city', 'Berlin');
     await page.waitForSelector('.suggestions');
-    const input = await page.$('.suggestions:nth-child(1)');
+    const input = await page.$('.city-suggestion:nth-child(1)');
     await input.click();
+    const events = await page.$('.EventList');
+    expect(await events.$$eval('.event', el => el.length)).toBe(1);
   })
 
 });

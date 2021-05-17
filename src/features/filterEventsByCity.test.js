@@ -10,7 +10,7 @@ const feature = loadFeature('./src/features/filterEventsByCity.feature');
 const locations = extractLocations(mockData);
 
 defineFeature(feature, test => {
-  test('When user hasn’t searched for a city, show upcoming events from all cities.', ({ given, when, then }) => {
+  test('When user hasn’t searched for a city, show upcoming events from all cities', ({ given, when, then }) => {
     given('user hasn’t searched for any city', () => {
 
     });
@@ -20,7 +20,7 @@ defineFeature(feature, test => {
       AppWrapper = mount(<App />);
     });
 
-    then('the user should see the list of upcoming events.', () => {
+    then('the user should see the list of upcoming events', () => {
       // list of getting events is an asynchronous action, so you need to update below
       AppWrapper.update();
       expect(AppWrapper.find('.event')).toHaveLength(mockData.length);

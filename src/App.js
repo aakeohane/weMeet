@@ -15,10 +15,10 @@ class App extends Component {
     selectedLocation: 'all'
   }
 
-  updateEvents = (location, eventCount) => {
+  updateEvents = (location, numberOfEvents) => {
     let locationEvents;
     getEvents().then((events) => {
-      const count = eventCount || this.state.eventCount;
+      const count = numberOfEvents || this.state.numberOfEvents;
       const selectedLocation = location || this.state.selectedLocation;
 
       if (selectedLocation === 'all') {
@@ -29,7 +29,7 @@ class App extends Component {
       }
       this.setState({
         events: locationEvents,
-        numberOfEvents: eventCount,
+        numberOfEvents: count,
         selectedLocation
       });
     });
@@ -53,7 +53,7 @@ class App extends Component {
       <div className="App">
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents updateEvents={this.updateEvents} numberOfEvents={this.state.numberOfEvents} />
-        <EventList events={this.state.events} />
+        <EventList  events={this.state.events} />
       </div>
     );
   }

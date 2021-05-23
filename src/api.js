@@ -29,21 +29,20 @@ const removeQuery = () => {
   }
 }
 
-const checkToken = async (accessToken) => {
+export const checkToken = async (accessToken) => {
   const result = await fetch(
     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
   )
     .then((res) => res.json())
     .catch((error) => error.json());
-  
-    return result;
-}
+    return result.error ? false : true;
+};
 
 const getToken = async (code) => {
+  removeQuery();
   const encodeCode = encodeURIComponent(code);
   const { access_token } = await fetch(
-    // eslint-disable-next-line
-    'https://bq9y0yw6fa.execute-api.us-west-1.amazonaws.com/dev/api/token' + '/' + encodeCode
+    `https://bq9y0yw6fa.execute-api.us-west-1.amazonaws.com/dev/api/token/${encodeCode}`
   )
     .then ((res) => {
       return res.json();
@@ -55,7 +54,7 @@ const getToken = async (code) => {
   return access_token;
 }
 
-export const getEvents = async () => {
+export const getEvents = async (max_results = 32) => {
   NProgress.start();
 
   if (window.location.href.startsWith('http://localhost')) {
@@ -67,7 +66,7 @@ export const getEvents = async () => {
   if (token) {
     removeQuery();
     // eslint-disable-next-line
-    const url = 'https://bq9y0yw6fa.execute-api.us-west-1.amazonaws.com/dev/api/get-events' + '/' + token;
+    const url = `https://bq9y0yw6fa.execute-api.us-west-1.amazonaws.com/dev/api/get-events/${token}/${max_results}`;
     const result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);
@@ -79,13 +78,14 @@ export const getEvents = async () => {
   }
 }
 
-export const getAccessToken = async () => {
-  const accessToken = localStorage.getItem('access_token');
+const getAccessToken = async () => {
+  const accessToken = await localStorage.getItem("access_token");
   const tokenCheck = accessToken && (await checkToken(accessToken));
-  if (!accessToken || tokenCheck.error) {
-    await localStorage.removeItem('access_token');
+
+  if (!accessToken || !tokenCheck) {
+    await localStorage.removeItem("access_token");
     const searchParams = new URLSearchParams(window.location.search);
-    const code = await searchParams.get('code');
+    const code = await searchParams.get("code");
     if (!code) {
       const results = await axios.get(
         'https://bq9y0yw6fa.execute-api.us-west-1.amazonaws.com/dev/api/get-auth-url'
@@ -96,4 +96,7 @@ export const getAccessToken = async () => {
     return code && getToken(code);
   }
   return accessToken;
-}
+};
+
+
+

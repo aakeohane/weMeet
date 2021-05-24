@@ -15,24 +15,31 @@ class App extends Component {
     selectedLocation: 'all'
   }
 
-  updateEvents = (location, numberOfEvents) => {
-    let locationEvents;
-    getEvents().then((events) => {
-      const count = numberOfEvents || this.state.numberOfEvents;
-      const selectedLocation = location || this.state.selectedLocation;
-
-      if (selectedLocation === 'all') {
-        locationEvents = events.slice(0, count);
-      } else {
-        locationEvents = events.filter((event) => event.location === selectedLocation)
-        .slice(0, count); 
-      }
-      this.setState({
-        events: locationEvents,
-        numberOfEvents: count,
-        selectedLocation
+  updateEvents = (location, eventCount) => {
+    const { selectedLocation, numberOfEvents } = this.state;
+    if (location) {
+      getEvents().then((events) => {
+        const locationEvents = (location === 'all') 
+        ? events 
+        : events.filter((event) => event.location === location);
+        const filteredEvents = locationEvents.slice(0, numberOfEvents);
+        this.setState({
+          events: filteredEvents,
+          selectedLocation: location
+        });
       });
-    });
+    } else {
+      getEvents().then((events) => {
+        const locationEvents = (selectedLocation === 'all') 
+        ? events 
+        : events.filter((event) => event.location === selectedLocation);
+        const filteredEvents = locationEvents.slice(0, eventCount);
+        this.setState({
+          events: filteredEvents,
+          numberOfEvents: eventCount
+        });
+      });
+    }
   }
 
   componentDidMount() {

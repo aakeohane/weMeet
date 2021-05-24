@@ -24,6 +24,10 @@ p {
   display: block;
 }
 
+.Alert {
+  font-size: 14px;
+}
+
 input[type="text"],
 input[type="number"] {
   padding: 8px 6px 8px 10px;
@@ -34,6 +38,10 @@ input[type="number"] {
   line-height: 20px;
   align-self: center;
   height: 38px;
+}
+
+input[type="number"] {
+  width: 70px;
 }
 
 .city {
@@ -51,11 +59,9 @@ input[type="number"] {
 
 .suggestions {
   width: 250px;
-  position: absolute;
   z-index: 2;
   align-self: center;
   margin: 0;
-  top: 43px;
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
 }
@@ -116,7 +122,7 @@ input[type="number"] {
 
 .numberOfEvents {
   width: 200px;
-  margin: 20px;
+  margin: 20px auto;
   text-align: center;
 }
 
@@ -126,11 +132,6 @@ input[type="number"] {
   grid-gap: 20px;
   padding: 20px;
   font-family: sans-serif;
-}
-
-.Alert {
-  position: fixed;
-  top: 20px;
 }
 
 .data-vis-wrapper {

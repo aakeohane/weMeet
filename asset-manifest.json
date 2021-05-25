@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/weMeet/static/css/main.98ae5d3b.chunk.css",
-    "main.js": "/weMeet/static/js/main.c017c580.chunk.js",
-    "main.js.map": "/weMeet/static/js/main.c017c580.chunk.js.map",
+    "main.js": "/weMeet/static/js/main.7c137ba6.chunk.js",
+    "main.js.map": "/weMeet/static/js/main.7c137ba6.chunk.js.map",
     "runtime-main.js": "/weMeet/static/js/runtime-main.b2e9580f.js",
     "runtime-main.js.map": "/weMeet/static/js/runtime-main.b2e9580f.js.map",
     "static/js/2.447114d6.chunk.js": "/weMeet/static/js/2.447114d6.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.b2e9580f.js",
     "static/js/2.447114d6.chunk.js",
     "static/css/main.98ae5d3b.chunk.css",
-    "static/js/main.c017c580.chunk.js"
+    "static/js/main.7c137ba6.chunk.js"
   ]
 }

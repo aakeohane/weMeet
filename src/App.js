@@ -6,6 +6,7 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 // import { mockData } from './mock-data';
 import { extractLocations, getEvents } from './api';
+import { OfflineAlert } from './Alert';
 
 class App extends Component {
   state = {
@@ -48,6 +49,16 @@ class App extends Component {
       if (this.mounted) {
         this.setState({ events: events.slice(0, this.state.numberOfEvents), locations: extractLocations(events) });
       }
+      if (!navigator.onLine) {
+        this.setState({
+          infoText:
+            'You are currently using the app offline and viewing data from your last visit. Data will not be up-to-date.',
+        });
+      } else {
+        this.setState({
+          infoText: '',
+        });
+      }
     });
   }
 
@@ -60,6 +71,7 @@ class App extends Component {
       <div className="App">
         <h1>weMeet</h1>
         <p>Choose the city nearest you</p>
+        <OfflineAlert text={this.state.infoText} />
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents updateEvents={this.updateEvents} numberOfEvents={this.state.numberOfEvents} />
         <EventList  events={this.state.events} />

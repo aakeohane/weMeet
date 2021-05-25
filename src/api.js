@@ -63,11 +63,11 @@ export const getEvents = async () => {
     return mockData;
   }
   if (!navigator.onLine) {
-    const { events } = localStorage.getItem("lastEvents");
+    const lastEvents = localStorage.getItem("lastEvents");
     NProgress.done();
     return { 
-      events: JSON.parse(events), 
-      locations: extractLocations(events) 
+      events: JSON.parse(lastEvents).events, 
+      locations: extractLocations(JSON.parse(lastEvents).events) 
     };
   }
 

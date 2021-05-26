@@ -7,6 +7,7 @@ import NumberOfEvents from './NumberOfEvents';
 // import { mockData } from './mock-data';
 import { extractLocations, getEvents } from './api';
 import { OfflineAlert } from './Alert';
+import logo from './img/weMeet-original.png'
 
 class App extends Component {
   state = {
@@ -70,7 +71,9 @@ class App extends Component {
     return (
       <div className="App">
         <OfflineAlert text={this.state.infoText} />
-        <h1>weMeet</h1>
+        <div className="logo_container">
+          <img className="logo" src={logo} alt="weMeet logo"/>
+        </div>
         <p>Choose the city nearest you</p>
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents updateEvents={this.updateEvents} numberOfEvents={this.state.numberOfEvents} />

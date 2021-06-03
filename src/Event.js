@@ -21,7 +21,13 @@ class Event extends Component {
         <div className="eventName">
           <h1>{event.summary}</h1>
           <p className="eventLocation">{event.location}</p>
-          <div className="eventTimeStart">{event.start.dateTime}</div>
+          <div className="eventTimeStart">{new Date(event.start.dateTime).toLocaleString(
+            "en-US", { 
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+            }
+          )}</div>
         </div>
         {!showDetails
           ? <button

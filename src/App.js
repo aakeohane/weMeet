@@ -7,7 +7,9 @@ import NumberOfEvents from './NumberOfEvents';
 // import { mockData } from './mock-data';
 import { extractLocations, getEvents } from './api';
 import { OfflineAlert } from './Alert';
-import logo from './img/weMeet-original.png'
+import logo from './img/weMeet-original.png';
+import ScatterPlot from './ScatterPlot';
+import PieGraph from './PieGraph';
 
 class App extends Component {
   state = {
@@ -44,6 +46,18 @@ class App extends Component {
     }
   }
 
+  getData = () => {
+    const { locations, events } = this.state;
+    const data = locations.map((location) => {
+      const number = events.filter((event) => event.location === location).length
+      const city = location.split().shift()
+      return { city, number };
+    })
+    return data;
+  }
+
+
+
   componentDidMount() {
     this.mounted = true;
     getEvents().then((events) => {
@@ -68,6 +82,7 @@ class App extends Component {
   }
 
   render() {
+    const { locations, numberOfEvents, events } = this.state;
     return (
       <div className="App">
         <OfflineAlert text={this.state.infoText} />
@@ -75,9 +90,14 @@ class App extends Component {
           <img className="logo" src={logo} alt="weMeet logo"/>
         </div>
         <p>Choose the city nearest you</p>
-        <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
-        <NumberOfEvents updateEvents={this.updateEvents} numberOfEvents={this.state.numberOfEvents} />
-        <EventList  events={this.state.events} />
+        <CitySearch locations={locations} updateEvents={this.updateEvents} />
+        <NumberOfEvents updateEvents={this.updateEvents} numberOfEvents={numberOfEvents} />
+        <div className="data-vis-wrapper">
+          <PieGraph events={events} />
+          <ScatterPlot data={this.getData()} />
+        </div>
+        
+        <EventList  events={events} />
       </div>
     );
   }

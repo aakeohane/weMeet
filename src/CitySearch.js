@@ -3,6 +3,7 @@ import { InfoAlert } from './Alert';
 
 class CitySearch extends Component {
   // Alternative way of setting initial state, can also be done within constructor { super(); this.state =...}
+  CitySearch = React.createRef();
   state = {
     query: '',
     suggestions: [],
@@ -38,9 +39,29 @@ class CitySearch extends Component {
     this.props.updateEvents(suggestion);
   }
 
+  // when clicking outside of suggestion box, it will remove suggestion box utilizing React.createRef method
+  handleClickOutside = (event) => {
+    if (
+      this.CitySearch.current &&
+      !this.CitySearch.current.contains(event.target)
+    ) {
+      this.setState({
+        showSuggestions: false
+      });
+    }
+  };
+
+  componentDidMount() {
+    document.addEventListener("mousedown", this.handleClickOutside);
+  }
+  
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClickOutside);
+  }
+
   render() {
     return (
-      <div className="CitySearch">
+      <div className="CitySearch" ref={this.CitySearch}>
         <InfoAlert text={this.state.infoText} />
         <input
           type="text"
@@ -48,6 +69,7 @@ class CitySearch extends Component {
           value={this.state.query}
           onChange={this.handleInputChanged}
           placeholder="City"
+          onFocus={() => this.setState({showSuggestions: true})}
         />
         <ul className="suggestions" style={this.state.showSuggestions ? {} : { display: 'none' }}>
           {this.state.suggestions.map((suggestion) => (

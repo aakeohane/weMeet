@@ -18,7 +18,7 @@ class ScatterPlot extends PureComponent {
           <XAxis type="category" dataKey="city" name="city" />
           <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} />
           <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-          <Scatter data={data} fill="#8884d8" />
+          <Scatter data={data} fill="#55a393" />
         </ScatterChart>
   
  

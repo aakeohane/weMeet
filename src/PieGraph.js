@@ -19,7 +19,7 @@ const PieGraph = ({ events }) => {
     return data.filter((data) => data.value >= 1);
   }
 
-  const COLORS = ['#b5302b', '#e77431', '#503431', '#55a393', '#4b6c57'];
+  const COLORS = ['#3c69a0', '#357920', '#37929F', '#55a393', '#503431'];
 
     return (
       <ResponsiveContainer width="100%" height={400}>
@@ -30,9 +30,7 @@ const PieGraph = ({ events }) => {
             cy="50%"
             labelLine={false}
             label={({name, percent}) => `${name} ${(percent * 100).toFixed(0)}%`}
-            // innerRadius={40}
             outerRadius={80}
-            // paddingAngle={4}
             fill="#8884d8"
             dataKey="value"
             stroke="white"

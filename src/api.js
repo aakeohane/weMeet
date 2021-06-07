@@ -55,7 +55,7 @@ const getToken = async (code) => {
   return access_token;
 }
 
-export const getEvents = async (max_results = 32) => {
+export const getEvents = async () => {
   NProgress.start();
 
   if (window.location.href.startsWith('http://localhost')) {
@@ -76,7 +76,7 @@ export const getEvents = async (max_results = 32) => {
   if (token) {
     removeQuery();
     // eslint-disable-next-line
-    const url = `https://bq9y0yw6fa.execute-api.us-west-1.amazonaws.com/dev/api/get-events/${token}/${max_results}`;
+    const url = 'https://bq9y0yw6fa.execute-api.us-west-1.amazonaws.com/dev/api/get-events' + '/' + token;
     const result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);

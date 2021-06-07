@@ -33,16 +33,16 @@ class Event extends Component {
           ? <button
               className="details-btn"
               onClick={() => this.handleClick()}
-              >Show details
+              ><span>Show details</span>
             </button>
           : <div>
               <div className="eventDetails">
                 <p className="eventDescription">{event.description}</p>
               </div>
               <button
-                className="details-btn"
+                className="details-btn details-btn-clicked"
                 onClick={() => this.handleClick()}
-                >Hide details
+                ><span>Hide details</span>
               </button>
             </div>
         }

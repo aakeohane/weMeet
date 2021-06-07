@@ -93,10 +93,10 @@ class App extends Component {
         <CitySearch locations={locations} updateEvents={this.updateEvents} />
         <NumberOfEvents updateEvents={this.updateEvents} numberOfEvents={numberOfEvents} />
         <div className="data-vis-wrapper">
+          <h2>Data Visualization</h2>
           <PieGraph events={events} />
           <ScatterPlot data={this.getData()} />
         </div>
-        
         <EventList  events={events} />
       </div>
     );

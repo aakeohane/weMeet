@@ -12,6 +12,7 @@
   max-width: 400px;
   width: 100%;
 }
+
 ul {
   padding: 0;
   list-style: none;
@@ -19,6 +20,15 @@ ul {
 
 p {
   margin: 5px 0;
+}
+
+p.eventDescription {
+  padding-bottom: 10px;
+}
+
+body {
+  background: #dfdbba;
+  font-family: "Roboto", sans-serif;
 }
 
 .display-none {
@@ -48,8 +58,10 @@ input[type="number"] {
   width: 70px;
 }
 
-.city {
+.city,
+.eventNumberInput {
   width: 250px;
+  background-color: #f5f5f5;
 }
 
 .CitySearch {
@@ -85,7 +97,7 @@ input[type="number"] {
 }
 
 .suggestions > li:hover {
-  background-color: #bcdcdb;
+  background-color: #3c69a0;
 }
 
 .event {
@@ -93,18 +105,58 @@ input[type="number"] {
   margin-bottom: 10px;
   text-align: left;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 10px;
   position: relative;
+  background: #ee893a;
+  color: white;
 }
 
 .details-btn {
   position: absolute;
   right: 5px;
   bottom: 5px;
-  padding: 5px 8px;
-  border-radius: 4px;
-  outline: none;
+  border-radius: 5px;
+  font-size: 15px;
+  color: white;
+  background-color: #37929f;
+  border: none;
+  padding: 10px;
+  width: 140px;
+  transition: all 0.5s;
   cursor: pointer;
+}
+
+.details-btn span {
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.details-btn span:after {
+  content: "⇊";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.details-btn-clicked span:after {
+  content: "⇈";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.details-btn:hover span {
+  padding-right: 20px;
+}
+
+.details-btn:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 .name {
@@ -140,14 +192,27 @@ input[type="number"] {
   font-family: sans-serif;
 }
 
+h2 {
+  font-size: 15px;
+  position: absolute;
+  top: 10px;
+  left: 100px;
+}
+
 .data-vis-wrapper {
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: #f5f5f5;
+  width: 100vw;
+  position: relative;
+  margin-left: -50vw;
+  left: 50%;
 }
 .data-vis-wrapper .recharts-responsive-container {
   min-width: 100%;
   display: flex;
+  align-items: center;
 }
 .recharts-surface {
   overflow: visible;
@@ -214,5 +279,19 @@ input[type="number"] {
     max-width: 50%;
     min-width: auto;
     margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  h2 {
+    position: absolute;
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  h2 {
+    position: absolute;
+    left: 70px;
   }
 }

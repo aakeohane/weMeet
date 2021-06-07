@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/weMeet/static/css/main.5c07b340.chunk.css",
-    "main.js": "/weMeet/static/js/main.cc3bbfa8.chunk.js",
-    "main.js.map": "/weMeet/static/js/main.cc3bbfa8.chunk.js.map",
+    "main.css": "/weMeet/static/css/main.659a2c53.chunk.css",
+    "main.js": "/weMeet/static/js/main.bf6b5188.chunk.js",
+    "main.js.map": "/weMeet/static/js/main.bf6b5188.chunk.js.map",
     "runtime-main.js": "/weMeet/static/js/runtime-main.4d48d699.js",
     "runtime-main.js.map": "/weMeet/static/js/runtime-main.4d48d699.js.map",
     "static/js/2.c253a63d.chunk.js": "/weMeet/static/js/2.c253a63d.chunk.js",
@@ -12,14 +12,14 @@
     "index.html": "/weMeet/index.html",
     "service-worker.js": "/weMeet/service-worker.js",
     "service-worker.js.map": "/weMeet/service-worker.js.map",
-    "static/css/main.5c07b340.chunk.css.map": "/weMeet/static/css/main.5c07b340.chunk.css.map",
+    "static/css/main.659a2c53.chunk.css.map": "/weMeet/static/css/main.659a2c53.chunk.css.map",
     "static/js/2.c253a63d.chunk.js.LICENSE.txt": "/weMeet/static/js/2.c253a63d.chunk.js.LICENSE.txt",
     "static/media/weMeet-original.dd5d0247.png": "/weMeet/static/media/weMeet-original.dd5d0247.png"
   },
   "entrypoints": [
     "static/js/runtime-main.4d48d699.js",
     "static/js/2.c253a63d.chunk.js",
-    "static/css/main.5c07b340.chunk.css",
-    "static/js/main.cc3bbfa8.chunk.js"
+    "static/css/main.659a2c53.chunk.css",
+    "static/js/main.bf6b5188.chunk.js"
   ]
 }

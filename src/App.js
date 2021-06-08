@@ -4,7 +4,6 @@ import './nprogress.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
-// import { mockData } from './mock-data';
 import { extractLocations, getEvents } from './api';
 import { OfflineAlert } from './Alert';
 import logo from './img/weMeet-original.png';

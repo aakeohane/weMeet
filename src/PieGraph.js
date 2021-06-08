@@ -9,7 +9,7 @@ const PieGraph = ({ events }) => {
 
 
   const getData = () => {
-    const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'AngularJS'];
+    const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'Angular'];
     const data = genres.map((genre) => {
       const value = events.filter(({summary}) =>
       summary.includes(genre)).length;
